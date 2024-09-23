@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participation Form</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f7f8fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .form-container {
+            max-width: 500px;
+            margin-top: 50px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+    </style>
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault(); // Prevent the default form submission
+            // Perform your form submission logic here (AJAX or direct submission)
+            
+            // Show success alert
+            alert("Form submitted successfully!");
+            
+            // Optionally, you can also submit the form programmatically
+            event.target.submit(); // Uncomment this line if you want the form to be submitted to the server after showing the alert
+        }
+    </script>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Participation Form for {{ scheme_name }}</h2>
+        <form method="post" enctype="multipart/form-data" onsubmit="handleSubmit(event)">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="mobile">Mobile Number:</label>
+                <input type="tel" id="mobile" name="mobile" class="form-control" required pattern="[0-9]{10}">
+            </div>
+            <div class="form-group">
+                <label for="vehicle_number">Vehicle Number:</label>
+                <input type="text" id="vehicle_number" name="vehicle_number" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="image_upload">Upload Image:</label>
+                <input type="file" id="image_upload" name="image_upload" class="form-control-file">
+            </div>
+            <input type="submit" value="Submit" class="btn btn-primary" style="width:100%;">
+        </form>
+    </div>
+</body>
+</html>
